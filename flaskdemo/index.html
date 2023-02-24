@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+</head>
+
+<body>
+<div class="container" id="app">
+  <h3 style="text-align:center">测试界面 button接收输入数据</h3>
+
+  <div style="text-align:center">
+    <input id="search-word" type="text" οnkeydοwn="jump(event);" placeholder="">
+    <button class="btn btn-search" id="click-search" type="button" value="start"
+            onclick="jump()" >搜&nbsp;&nbsp;&nbsp;&nbsp索
+    </button>
+    <h4 id="showpre"></h4>
+
+  </div>
+
+</div>
+
+</body>
+
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/axios.min.js"></script>
+
+<script>
+function jump(){
+    var search_keyword=document.getElementById("search-word").value;
+    /*axios.post('http://127.0.0.1:8000/data_generate'*/
+    /*axios.post('F:\winter\6131\ehospital\e-hospital-2023\Fei_Test\Model.py')*/
+    axios.post('http://127.0.0.1:5000/data_generate', {
+      // 给后端传数据 search是button接收的字符 你根据数据格式调整一些再
+      // 也可以增加字段 key-value这种 testtxt就是我加的
+        testtxt:222,
+        search: search_keyword
+    })
+    .then(function (response) {
+      
+        var predata = response.data.resultdata;
+        console.log(predata)
+        document.getElementById('showpre').innerHTML = "<p>预测结果：" + predata + "值</p>"
+       
+    })
+    .catch(function (error) {
+        alert("Error!");
+    });
+}
+
+</script>
+
+</html>
