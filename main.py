@@ -11,11 +11,8 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-
-
-
 # 数据处理
-# data processing
+# data processingfs
 def final_Result(inputcsv):
     # 导入模型
     # import model

@@ -5,7 +5,7 @@ import joblib
 
 # Import data file
 # change the path to the path u saved this file
-cardio = pd.read_csv("F:/winter/6131/ehospital/e-hospital-2023/cardio_dataset.csv")
+cardio = pd.read_csv("cardio_dataset.csv")
 
 # Conduct data cleaning
 Pre_Cleaned = pd.DataFrame(cardio)
