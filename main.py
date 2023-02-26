@@ -16,7 +16,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 def final_Result(inputcsv):
     # 导入模型
     # import model
-    clf=joblib.load("InternalMedicine/flaskdemo/pred.m")
+    clf=joblib.load("pred.m")
     # print(inputcsv)
     result=clf.predict([inputcsv])
     return result
